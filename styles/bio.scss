@@ -1,0 +1,349 @@
+@use "partials/globals" as *;
+@use "partials/mixins" as *;
+
+.container {
+  width: 100%;
+  max-width: 90rem;
+  margin: auto;
+}
+
+/* header content */
+.header__content {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+/* Hero Section */
+
+.hero {
+  max-height: 100vh;
+  width: 100%;
+  position: relative;
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 56.25%;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 1rem;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 1.5rem;
+
+    @include tablet {
+      font-size: 4.25rem;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(50, 50, 50, 0.5);
+  }
+}
+
+/* About Section */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  color: #323232;
+
+  &-content {
+    @include tablet {
+      width: 85%;
+      margin: auto;
+    }
+  }
+
+  &__title {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    color: #323232;
+    font-weight: 600;
+    font-size: 2.125rem;
+  }
+
+  &__image {
+    padding-bottom: 1rem;
+    width: 100%;
+  }
+
+  &__caption {
+    padding-bottom: 1rem;
+    @include subheader-text;
+
+    @include tablet {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  &__caption_2 {
+    font-size: 0.8rem;
+
+    @include tablet {
+      font-size: 1.1rem;
+      line-height: 2rem;
+      font-weight: 600;
+    }
+  }
+
+  &__text-heading {
+    padding-bottom: 1rem;
+    font-weight: 600;
+    font-size: 0.9125rem;
+
+    @include tablet {
+      padding-top: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__text {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__paragraph {
+    padding-bottom: 1rem;
+    @include body-copy-text;
+    padding-right: 1rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+  }
+}
+
+/* Gallery Section */
+
+.gallery {
+  background-color: #fafafa;
+  width: 100%;
+  padding-top: 1rem;
+
+  &__title {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    color: #323232;
+    font-weight: 600;
+    font-size: 2.125rem;
+    padding-left: 1rem;
+  }
+
+  &__images {
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      width: calc(33.333% - 2rem);
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+/* Comment Section */
+
+.comments {
+  padding: 1rem;
+
+  &__title {
+    padding-bottom: 2rem;
+    color: #323232;
+    font-weight: 600;
+    font-size: 1.625rem;
+  }
+
+  &__section {
+    width: 90%;
+    margin: auto;
+    display: flex;
+
+    @include desktop {
+      width: 40%;
+      display: flex;
+      gap: 1.875rem;
+      margin: 3.125rem auto;
+    }
+
+    .comments__logo-container {
+      .comments__logo {
+        width: 3.75rem;
+        height: 3.75rem;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .comments__form-container {
+      width: 100%;
+
+      input {
+        max-width: 100%;
+        padding: 1rem;
+      }
+    }
+  }
+
+  &__form-container {
+    .comments__form-label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      color: #cbcbcb;
+
+      .comments__form-input,
+      .comments__form-textarea {
+        border-radius: 0.25rem;
+        border: 0.0625rem solid #e1e1e1;
+        border-color: #e1e1e1;
+        background-color: #fafafa;
+        outline: none;
+        margin-top: 0.3rem;
+
+        &:focus {
+          border-color: #000;
+        }
+
+        &.error {
+          border-color: #d22d2d;
+        }
+      }
+
+      .comments__form-textarea {
+        height: 7rem;
+        padding: 1rem;
+      }
+
+      @include tablet {
+        .comments__form-textarea {
+          height: 3rem;
+          padding: 1rem;
+        }
+      }
+
+      @include desktop {
+        .comments__form-input {
+          padding: 1rem;
+        }
+
+        .comments__form-textarea {
+          height: 5rem;
+          padding: 1rem;
+        }
+      }
+    }
+
+    .submit__div {
+      text-align: right;
+    }
+
+    .submit-btn {
+      width: 12.25rem;
+      background-color: #323232;
+      color: #fff;
+      font-weight: 600;
+      padding: 1rem 1.875rem;
+      border-radius: 0.25rem;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 2rem;
+
+      margin-bottom: 2rem;
+
+      @include tablet {
+        margin-bottom: 0;
+      }
+    }
+
+    .comment {
+      border-top: 0.0625rem solid #e1e1e1;
+      display: flex;
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: 2rem 0;
+
+      @include tablet {
+        flex-direction: row;
+      }
+
+      &__right {
+        width: 100%;
+
+        &__header {
+          display: flex;
+          align-items: center;
+
+          justify-content: space-between;
+          margin-bottom: 0.4375rem;
+
+          .comment__name {
+            color: #323232;
+            font-size: 1.0625rem;
+            font-weight: 600;
+          }
+
+          .comment__timestamp {
+            color: #bebebe;
+            font-size: 0.875rem;
+          }
+        }
+
+        .comment__text {
+          color: #323232;
+          line-height: 1.5625rem;
+          font-weight: 500;
+        }
+      }
+
+      &__image {
+        width: 3.75rem;
+        height: 3.75rem;
+        background-color: #e1e1e1;
+        border-radius: 100%;
+      }
+    }
+  }
+}

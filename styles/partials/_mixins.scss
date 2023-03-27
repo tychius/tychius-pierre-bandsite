@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+@mixin tablet {
+    @media (min-width:$breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:$breakpoint-desktop) {
+        @content;
+    }
+}
+
+/* Text Styles Mixins */
+
+@mixin page-header-text {
+    font-size: $page-header-font-size;
+    line-height: $page-header-line-height;
+    font-weight: $page-header-font-weight;
+}
+
+@mixin section-header-text {
+    font-size: $section-header-font-size;
+    line-height: $section-header-line-height;
+    font-weight: $section-header-font-weight;
+}
+
+@mixin subheader-text {
+    font-size: $subheader-font-size;
+    line-height: $subheader-line-height;
+    font-weight: $subheader-font-weight;
+}
+
+@mixin body-copy-text {
+    font-size: $body-copy-font-size;
+    line-height: $body-copy-line-height;
+    font-weight: $body-copy-font-weight;
+}
+
+@mixin footer-copy-text {
+    font-size: $footer-copy-font-size;
+    line-height: $footer-copy-line-height;
+    font-weight: $footer-copy-font-weight;
+}

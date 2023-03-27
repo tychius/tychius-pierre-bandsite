@@ -1,0 +1,246 @@
+@use "partials/globals" as *;
+@use "partials/mixins" as *;
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+
+// header content
+.header__content {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+/* Hero Section */
+
+.hero {
+  height: 50vh;
+  width: 100%;
+  position: relative;
+  background-image: url("../assets/images/Photo-gallery-3.jpg");
+  background-size: cover;
+  background-position: center;
+
+  @include desktop {
+    height: 100vh;
+  }
+
+  // Choose an aspect ratio (e.g., 16:9)
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 56.25%; // (9 / 16) * 100
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 1rem;
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px 30px;
+      justify-content: space-between;
+
+      @include tablet {
+        flex-direction: row;
+      }
+    }
+
+    &__left,
+    &__right {
+      width: 90%;
+
+      @include tablet {
+        width: 100%;
+      }
+    }
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 1.5rem;
+
+    @include tablet {
+      font-size: 3.25rem;
+    }
+
+    @include desktop {
+      font-size: 4rem;
+    }
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-size: 1rem;
+
+    @include tablet {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+      50,
+      50,
+      50,
+      0.5
+    ); // Use an alpha value for the background-color
+  }
+}
+
+.shows {
+  padding: 1.2rem;
+
+  @include tablet {
+    padding: 5rem 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__title {
+    color: #323232;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+
+    @include tablet {
+      text-align: start;
+    }
+  }
+
+  #concert {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    @include desktop {
+      width: 70%;
+    }
+
+    tr {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      @include tablet {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid #e1e1e1;
+        padding: 0 30px;
+      }
+
+      &:hover {
+        background-color: #e1e1e1;
+      }
+
+      &.selected {
+        background-color: #e1e1e1;
+      }
+    }
+
+    .heading {
+      height: 70px;
+      display: none;
+      padding: 0 30px 0 0;
+
+      @include tablet {
+        display: flex;
+        border-bottom: none;
+        text-align: start;
+      }
+
+      th {
+        text-align: start;
+        color: #bebebe;
+        font-weight: 600;
+        font-size: 14px;
+        width: 100%;
+      }
+    }
+
+    td {
+      padding: 15px 0;
+
+      @include tablet {
+        padding: 25px 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .date {
+      color: #323232;
+      font-weight: 600;
+      font-size: 17px;
+      padding-left: 0;
+      border-bottom: none;
+    }
+
+    .venue {
+      color: #323232;
+      font-size: 17px;
+      border-bottom: none;
+
+      @include tablet {
+      }
+    }
+
+    .location {
+      color: #323232;
+      font-size: 17px;
+      border-bottom: none;
+
+      @include tablet {
+      }
+    }
+
+    .action button {
+      width: 100%;
+      background-color: #323232;
+      color: #fff;
+      font-weight: 600;
+      padding: 16px 30px;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      @include tablet {
+        with: 70%;
+      }
+    }
+  }
+}
